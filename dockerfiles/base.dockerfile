@@ -51,18 +51,18 @@ RUN apt-get autoclean
 
 RUN apt-get install qt5* -y
 
-RUN echo "Configuring and building Thirdparty/OpenSSL ..." && \
-wget https://www.openssl.org/source/openssl-1.1.1i.tar.gz && \
-tar xvfz openssl-1.1.1i.tar.gz && \
-cd openssl-1.1.1i/ && \
-./config shared && \
-make && \
-make install && \
-ldconfig 
+# RUN echo "Configuring and building Thirdparty/OpenSSL ..." && \
+# wget https://www.openssl.org/source/openssl-1.1.1i.tar.gz && \
+# tar xvfz openssl-1.1.1i.tar.gz && \
+# cd openssl-1.1.1i/ && \
+# ./config shared && \
+# make && \
+# make install && \
+# ldconfig 
 
 RUN mkdir LDSO && cd LDSO && \
     git clone https://github.com/LeeJuCheon/LDSO_SLAM.git && \
-    cd LDSO_SLAM && python3 ./buildDeps.py --d
+    cd LDSO_SLAM && python3 ./buildDeps.py --d --system
 
 RUN cd LDSO && cd LDSO_SLAM && chmod +x make_project.sh &&\
     ./make_project.sh
