@@ -15,6 +15,14 @@ apt-get install ninja-build -y && \
 apt-get install software-properties-common -y && \
 apt-get install python3 -y && \
 apt-get install python3-pip -y && \
+apt-get install libeigen3-dev -y && \
+apt-get install libgoogle-glog-dev -y && \ 
+apt-get install libgtest-dev -y && \ 
+apt-get install libsuitesparse-dev -y && \ 
+apt-get install libopencv-dev -y && \ 
+apt-get install libzip-dev -y && \ 
+apt-get install libboost-all-dev -y && \
+
 # Related to JetBrains CLion Docker develpoment...
 
 apt-get install -y ssh && \
@@ -55,9 +63,6 @@ ldconfig
 RUN mkdir LDSO && cd LDSO && \
     git clone https://github.com/LeeJuCheon/LDSO_SLAM.git && \
     cd LDSO_SLAM && python3 ./buildDeps.py --d --system
-
-RUN cd LDSO && cd LDSO_SLAM && chmod +x install_dependencies.sh &&\
-    ./install_dependencies.sh
 
 RUN cd LDSO && cd LDSO_SLAM && chmod +x make_project.sh &&\
     ./make_project.sh
