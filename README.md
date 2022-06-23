@@ -6,9 +6,43 @@
 - OpenCV : 4.4.0
 - Eigen : 3.3.9
 - Pangolin : 0.5
-- OpenSSL : 1.1.1
 - ROS : Melodic
 
+## Run Dockerfile
+* 본인 Local에 git clone 한 뒤, 
+```bash
+  docker build --no-cache --progress=tty --force-rm -f base.dockerfile -t orb:slam3 . # 예시, 뒤의 image 이름은 수정 필요
+```
+* Dataset 저장을 위한 docker volume 활용
+    1. docker create volume [이름]
+    2. HOST OS가 windows라면
+        1. \\wsl$\docker-desktop-data\version-pack-data\community\docker\volumes 경로의 각 volume에 데이터 저장
+    3. HOST OS가 Linux라면
+        1. /var/lib/docker/volumes 경로의 각 volume에 데이터 저장
+  
+* 실행 가능한 docker container run
+    
+    ```bash
+    docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix \ # visualization 관련
+    -v dataset:/LDSO/LDSO_SLAM/DataSets/KITTI/\  # KITTI 데이터 볼륨
+    -e DISPLAY=unix$DISPLAY \     # HOST에서 DISPLAY할 수 있도록 설정
+    --net=host \         # host 연결 관련
+    --name ldso ldso:base    # container 이름, image 이름
+    ```
+
+* docker attach [컨테이터 이름]
+    - 실행 환경 : MobaXterm
+    - 추가 설치 프로그램 : XLaunch
+
+### LDSO 실행 방법
+
+  ```bash
+  ./bin/run_dso_kitti \
+    preset=0 \
+    files=Kitti/odometry/dataset/sequences/00/ \
+    calib=./examples/Kitti/Kitti00-02.txt
+  ```
+   
 
 ### 이 Github는 https://github.com/tum-vision/LDSO의 내용을 기반으로 작성했습니다.
 --------------------------------------
