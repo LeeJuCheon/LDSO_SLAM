@@ -62,7 +62,7 @@ ldconfig
 
 RUN mkdir LDSO && cd LDSO && \
     git clone https://github.com/LeeJuCheon/LDSO_SLAM.git && \
-    cd LDSO_SLAM && python3 ./buildDeps.py --d --system
+    cd LDSO_SLAM && python3 ./buildDeps.py --d
 
 RUN cd LDSO && cd LDSO_SLAM && chmod +x make_project.sh &&\
     ./make_project.sh
