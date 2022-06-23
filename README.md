@@ -1,3 +1,17 @@
+# LDSO
+
+## Development Environment
+- OS : Ubuntu 18.04
+- Gcc : 7.5.0
+- OpenCV : 4.4.0
+- Eigen : 3.3.9
+- Pangolin : 0.5
+- OpenSSL : 1.1.1
+- ROS : Melodic
+
+
+### 이 Github는 https://github.com/tum-vision/LDSO의 내용을 기반으로 작성했습니다.
+--------------------------------------
 # LDSO: Direct Sparse Odometry with Loop Closure
 
 ## Related Publications

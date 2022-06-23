@@ -5,9 +5,9 @@ import sys
 import argparse
 import urllib.request
 import urllib.error
-import ssl
+# import ssl
 
-context = ssl._create_unverified_context()
+# context = ssl._create_unverified_context()
 
 try:
     __import__("yaml")
