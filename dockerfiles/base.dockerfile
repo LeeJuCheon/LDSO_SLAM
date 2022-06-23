@@ -6,14 +6,6 @@ RUN sed -i 's@archive.ubuntu.com@mirror.kakao.com@g' /etc/apt/sources.list
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install build-essential -y && \
 
-# Related to proSLAM
-apt-get install libeigen3-dev -y && \
-apt-get install libsuitesparse-dev -y && \
-apt-get install freeglut3-dev -y && \
-apt-get install libqglviewer-dev-qt5 -y && \
-apt-get install libyaml-cpp-dev -y && \
-apt-get install ninja-build -y && \
-
 # Related to build...
 apt-get install cmake -y && \
 apt-get install git -y && \
@@ -23,7 +15,6 @@ apt-get install ninja-build -y && \
 apt-get install software-properties-common -y && \
 apt-get install python3 -y && \
 apt-get install python3-pip -y && \
-
 # Related to JetBrains CLion Docker develpoment...
 
 apt-get install -y ssh && \
@@ -36,7 +27,6 @@ apt-get install -y rsync && \
 apt-get install -y tar && \
 apt-get install -y mesa-utils && \
 apt-get install -y libpython2.7-dev && \
-
 # Related to X11 remote display
 apt-get install -y libgl1-mesa-glx && \
 apt-get install -y libglu1-mesa-dev && \
@@ -44,8 +34,6 @@ apt-get install -y mesa-common-dev && \
 apt-get install -y x11-utils && \
 apt-get install -y x11-apps && \
 apt-get install x11-xserver-utils && \
-apt-get install libssl-dev -y && \
-apt-get install libgflags-dev && \
 apt-get clean
  
 RUN pip3 install pyyaml
