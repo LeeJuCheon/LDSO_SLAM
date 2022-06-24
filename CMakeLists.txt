@@ -75,3 +75,7 @@ set( THIRD_PARTY_LIBS
 
 add_subdirectory(src)
 add_subdirectory(examples)
+
+add_executable(plotPointCloud plotPointCloud.cpp)
+target_link_libraries(plotPointCloud PUBLIC
+    ${Pangolin_LIBRARIES} ${Eigen3_LIBS})

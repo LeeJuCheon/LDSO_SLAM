@@ -42,7 +42,15 @@
     files=Kitti/odometry/dataset/sequences/00/ \
     calib=./examples/Kitti/Kitti00-02.txt
   ```
-   
+
+## Extra. Map 저장, 저장된 Map 파일 Pangolin으로 실행하는 방법
+* 영상이 끝나면 ./KITTY_PC.ply 저장
+* 해당 파일을 Pangolin으로 실행하는 명령어
+
+```bash
+./plotPointCloud file_name
+# example : ./plotPointCloud KITTY_PC.ply
+```
 
 ### 이 Github는 https://github.com/tum-vision/LDSO의 내용을 기반으로 작성했습니다.
 --------------------------------------
