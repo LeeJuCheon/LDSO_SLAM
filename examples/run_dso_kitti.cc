@@ -426,6 +426,7 @@ int main(int argc, char **argv) {
                MilliSecondsTakenMT / (float) numFramesProcessed,
                1000 / (MilliSecondsTakenSingle / numSecondsProcessed),
                1000 / (MilliSecondsTakenMT / numSecondsProcessed));
+               viewer->saveAsPLYFile("./kitti_pc.ply");
         if (setting_logStuff) {
             std::ofstream tmlog;
             tmlog.open("logs/time.txt", std::ios::trunc | std::ios::out);
